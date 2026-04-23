@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Staff Management</h3>
+<table class="table table-sm table-striped">
+  <thead><tr><th>User</th><th>Role</th><th>Full Name</th><th>Phone</th><th>Save</th></tr></thead>
+  <tbody>
+  {% for s in staff %}
+  <tr>
+    <form method="post">
+      <td>{{ s.username }}</td>
+      <td>{{ s.role }}</td>
+      <td><input name="full_name" value="{{ s.full_name }}" class="form-control form-control-sm" /></td>
+      <td><input name="phone" value="{{ s.phone }}" class="form-control form-control-sm" /></td>
+      <td>
+        <input type="hidden" name="staff_id" value="{{ s.id }}" />
+        <button class="btn btn-sm btn-primary">Save</button>
+      </td>
+    </form>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

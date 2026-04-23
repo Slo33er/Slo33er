@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Site Management</h3>
+<form method="post" class="row g-2 mb-4">
+  <div class="col-md-4"><input name="name" class="form-control" placeholder="site name" required /></div>
+  <div class="col-md-6"><input name="address" class="form-control" placeholder="address" required /></div>
+  <div class="col-md-2"><button class="btn btn-primary">Add Site</button></div>
+</form>
+<table class="table table-sm table-striped"><thead><tr><th>Name</th><th>Address</th><th>Active</th></tr></thead><tbody>{% for s in sites %}<tr><td>{{ s.name }}</td><td>{{ s.address }}</td><td>{{ s.active }}</td></tr>{% endfor %}</tbody></table>
+{% endblock %}

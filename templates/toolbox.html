@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h3>Toolbox Meetings</h3>
+  <a href="{{ url_for('new_toolbox') }}" class="btn btn-primary">New Record</a>
+</div>
+<table class="table table-striped table-sm">
+  <thead><tr><th>ID</th><th>Worker</th><th>Site</th><th>Date</th><th>Topic</th><th>Status</th><th>Actions</th></tr></thead>
+  <tbody>
+  {% for r in rows %}
+    <tr>
+      <td>{{ r.id }}</td><td>{{ r.worker_username }}</td><td>{{ r.site_name }}</td><td>{{ r.meeting_date }}</td><td>{{ r.topic }}</td><td>{{ r.status }}</td>
+      <td>
+        {% if user.role in ['admin','owner'] %}
+        <form method="post" action="{{ url_for('toolbox_decision', meeting_id=r.id) }}" class="d-inline"><input type="hidden" name="decision" value="approved" /><button class="btn btn-sm btn-success">Approve</button></form>
+        <form method="post" action="{{ url_for('toolbox_decision', meeting_id=r.id) }}" class="d-inline"><input type="hidden" name="decision" value="rejected" /><button class="btn btn-sm btn-warning">Reject</button></form>
+        {% endif %}
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

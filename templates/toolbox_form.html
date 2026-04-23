@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>New Toolbox Meeting Record</h3>
+<form method="post" class="row g-3">
+  <div class="col-md-4"><label class="form-label">Site</label><select name="site_id" class="form-select">{% for s in sites %}<option value="{{ s.id }}">{{ s.name }}</option>{% endfor %}</select></div>
+  <div class="col-md-4"><label class="form-label">Meeting date</label><input type="date" name="meeting_date" class="form-control" required /></div>
+  <div class="col-md-4"><label class="form-label">Topic</label><input name="topic" class="form-control" required /></div>
+  <div class="col-12"><label class="form-label">Details</label><textarea name="details" class="form-control" required></textarea></div>
+  <div class="col-12"><button class="btn btn-primary">Submit</button></div>
+</form>
+{% endblock %}
