@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-slate-100 text-slate-900;
+}
+
+.card {
+  @apply rounded-2xl bg-white/90 shadow-xl shadow-slate-300/40 backdrop-blur;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-brand.blue to-brand.cyan px-5 py-3 text-base font-semibold text-white shadow-glow transition hover:scale-[1.01] active:scale-[0.99];
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-3 text-base font-semibold text-slate-700 transition hover:bg-slate-50;
+}
+
+.input {
+  @apply w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-base outline-none ring-brand.blue/40 transition focus:ring-4;
+}
+
+.label {
+  @apply mb-1 block text-sm font-semibold text-slate-700;
+}
